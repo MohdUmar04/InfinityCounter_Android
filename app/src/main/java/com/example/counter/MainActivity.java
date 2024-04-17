@@ -20,8 +20,11 @@ public class MainActivity extends AppCompatActivity {
         dec=findViewById(R.id.down);
         inc.setOnClickListener(view -> {
             int current=Integer.parseInt(ct.getText().toString());
-            if(current <1000)
-            ct.setText(getString(R.string.count,current + 1));
+            if(current < Integer.MAX_VALUE) {
+                ct.setText(getString(R.string.count, current + 1));
+                if((current+1)%10 == 0)
+                    System.out.println("Reached "+(current+1));
+            }
             else{
                 ct.setText(getString(R.string.count,0));
             }
@@ -29,8 +32,11 @@ public class MainActivity extends AppCompatActivity {
         });
         dec.setOnClickListener(view -> {
             int current=Integer.parseInt(ct.getText().toString());
-            if(current > -1000)
-                ct.setText(getString(R.string.count,current - 1));
+            if(current > Integer.MIN_VALUE) {
+                ct.setText(getString(R.string.count, current - 1));
+                if((current-1)%10 == 0)
+                    System.out.println("Reached "+(current-1));
+            }
             else{
                 ct.setText(getString(R.string.count,0));
             }
