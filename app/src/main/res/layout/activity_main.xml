@@ -6,19 +6,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/change"
+    android:background="@drawable/infinitycounter_bg"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-105dp"
-        android:layout_marginBottom="90dp"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textSize="75sp"
-        android:textStyle="bold"
-        tools:ignore="RtlCompat" />
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp" >
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginBottom="90dp"
+            android:src="@drawable/infinity"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textSize="75sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+    </RelativeLayout>
 
     <TextView
         android:gravity="center"
@@ -28,6 +35,7 @@
         android:textSize="75sp"
         android:text="@string/count"
         android:textStyle="bold"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

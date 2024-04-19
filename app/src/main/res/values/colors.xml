@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="change">#F7F9BB</color>
+    <color name="change">#09078F</color>
     <color name="splash">#BFCFD35E</color>
+    <color name="my_dark_primary">#00000000</color>
 </resources>
