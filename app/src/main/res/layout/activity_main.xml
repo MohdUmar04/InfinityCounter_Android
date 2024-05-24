@@ -52,7 +52,6 @@
             android:text="@string/down_count"
             android:background="@drawable/round_corner_button"
             android:id="@+id/down"
-
             android:layout_height="match_parent"/>
         <androidx.appcompat.widget.AppCompatButton
             android:textSize="50sp"

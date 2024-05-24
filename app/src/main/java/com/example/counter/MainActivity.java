@@ -5,8 +5,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModelProvider;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+
+    MainAcitivityViewModel mainAcitivityViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,31 +21,17 @@ public class MainActivity extends AppCompatActivity {
         TextView ct;
         AppCompatButton inc,dec;
         ct=findViewById(R.id.count);
-        ct.setText(getString(R.string.count,0));
         inc=findViewById(R.id.up);
         dec=findViewById(R.id.down);
-        inc.setOnClickListener(view -> {
-            int current=Integer.parseInt(ct.getText().toString());
-            if(current < Integer.MAX_VALUE) {
-                ct.setText(getString(R.string.count, current + 1));
-                if((current+1)%10 == 0)
-                    System.out.println("Reached "+(current+1));
-            }
-            else{
-                ct.setText(getString(R.string.count,0));
-            }
+        mainAcitivityViewModel = new ViewModelProvider(this).get(MainAcitivityViewModel.class);
 
-        });
-        dec.setOnClickListener(view -> {
-            int current=Integer.parseInt(ct.getText().toString());
-            if(current > Integer.MIN_VALUE) {
-                ct.setText(getString(R.string.count, current - 1));
-                if((current-1)%10 == 0)
-                    System.out.println("Reached "+(current-1));
-            }
-            else{
-                ct.setText(getString(R.string.count,0));
-            }
-        });
+        LiveData<Integer> count = mainAcitivityViewModel.getInitialCounter();
+        count.observe(this, integer -> ct.setText(String.format(Locale.US, "%d", integer)));
+
+
+        inc.setOnClickListener(view -> mainAcitivityViewModel.incCounter());
+
+
+        dec.setOnClickListener(view -> mainAcitivityViewModel.decCounter());
     }
 }

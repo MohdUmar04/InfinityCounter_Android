@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Infinity\nCounter</string>
+    <string name="app_name">Infinity Counter</string>
     <string name="count">%1$d</string>
     <string name="up_count">+</string>
     <string name="down_count">-</string>
